@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> clock </title>
+        <style>
+            body{
+                background-color: black
+            }
+
+            #txt{
+                color:white;
+                font-family: georgia;
+                font-size: 80px;
+                padding-top: 100px;
+                width: 318px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <body onload="startTime(); startChangeTextColor();">     
+        <div id="txt"></div>
+
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+                        
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+           
+            var t = setTimeout(function(){
+                startTime();
+            },500);
+        }
+
+         function checkTime(i) {
+                if (i<10) {
+                    i = "0" + i;
+                } return i;
+                         // this adds the zero in front of numbers < 10
+            }
+//this function will change the text color randomly from the designated colors in the array, every minute (60,000 milsec) after page load. It is based on refreshing the page with setTimeout instead if calling the m variable to determine when color changes.
+    // named function that accepts no arguments
+    // called on page load
+    // generate random number and use it as an index to pull color
+
+        function startChangeTextColor() {
+            var possibleColors = ["red", "orange", "yellow", "green", "blue", "purple"];
+            var random = Math.floor(Math.random() * 6) + 1; // random number between 0 and 5
+
+            document.getElementById("txt").style.color = possibleColors[random];
+
+            var t = setTimeout(function() {
+                startChangeTextColor();
+                }, 60000); // one minute
+            }
+
+ //for reference:
+ //uaing an array for odd/even color picking
+        // function oddEven(i){
+        //     var arrayColors = [ "red" , "orange"]
+
+        //     if (i % 2 === 0){
+        //         document.body.style.backgroundColor = arrayColors[0];
+        //     } else{
+        //         document.body.style.backgroundColor = arrayColors[1];
+        //     }
+        // }
+
+    </script>
+
+    </body>
+
+
+</html>
+
+
+
+  
