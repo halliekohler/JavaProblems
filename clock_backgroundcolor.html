@@ -56,27 +56,6 @@
                 } return i;
                          // this adds the zero in front of numbers < 10
             }
-
-
-//this fuction makes a random color as a variable and changes the background color to it
-        function randomHex(){
-            var otherColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            document.body.style.backgroundColor="otherColor";
-        } 
-
-//this function changes the text color based on an array of colors
-        function textColor(i){
-            var arrayColor = [ "red" , "orange"]
-
-            if (i % 2 === 0){
-                document.body.style.color = arrayColor[0];
-            } else{
-                document.body.style.color = arrayColor[1];
-            }
-        }
-
- 
-
     </script>
 
     </body>
