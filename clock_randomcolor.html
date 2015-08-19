@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> clock </title>
+        <style>
+            body{
+                background-color: black
+            }
+
+            #txt{
+                color:white;
+                font-family: georgia;
+                font-size: 80px;
+                padding-top: 100px;
+                width: 318px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <body onload="startTime(); randomHex();">     
+        <div id="txt"></div>
+
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+
+            m = checkTime(m);
+            s = checkTime(s);
+            
+            document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+           
+            var t = setTimeout(function(){
+                startTime();
+            },500);
+        }
+
+         function checkTime(i) {
+                if (i<10) {
+                    i = "0" + i;
+                } return i;
+                         // this adds the zero in front of numbers < 10
+            }
+
+
+//this fuction makes a random color as a variable and changes the background color to it
+//It is based on refreshing the page with setTimeout instead if calling the m variable to determine when color changes.
+//this means it will not 'tick' with the clock if your internet connection is slightly slow (like mine!)
+        function randomHex(){
+            var otherColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            document.body.style.backgroundColor = otherColor;
+        
+        var t = setTimeout(function(){
+                randomHex();
+            },1000); //every second
+
+
+        } 
+
+
+ 
+
+    </script>
+
+    </body>
+
+
+</html>
+
+
+
+  
