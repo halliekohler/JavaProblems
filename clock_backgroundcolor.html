@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> clock </title>
+        <style>
+            body{
+                background-color: black
+            }
+
+            #txt{
+                color:white;
+                font-family: georgia;
+                font-size: 80px;
+                padding-top: 100px;
+                width: 318px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <body onload="startTime()">     
+        <div id="txt"></div>
+
+
+    <script>
+        function startTime() {
+            var today=new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            
+            oddEven(s);
+            
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+           
+            var t = setTimeout(function(){
+                startTime();
+            },500);
+        }
+
+// this function changes the background every (i) -- odd (i) are green and even (i) are blue
+       function oddEven(i) {
+            if (i % 2 === 0) {
+                document.body.style.backgroundColor="lightblue";
+            }
+            else {
+                document.body.style.backgroundColor="darkgreen";
+            }        
+        }
+
+         function checkTime(i) {
+                if (i<10) {
+                    i = "0" + i;
+                } return i;
+                         // this adds the zero in front of numbers < 10
+            }
+
+
+//this fuction makes a random color as a variable and changes the background color to it
+        function randomHex(){
+            var otherColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor="otherColor";
+        } 
+
+//this function changes the text color based on an array of colors
+        function textColor(i){
+            var arrayColor = [ "red" , "orange"]
+
+            if (i % 2 === 0){
+                document.body.style.color = arrayColor[0];
+            } else{
+                document.body.style.color = arrayColor[1];
+            }
+        }
+
+ 
+
+    </script>
+
+    </body>
+
+
+</html>
+
+
+
+  
