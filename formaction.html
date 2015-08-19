@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <title> formaction </title>
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+
+        <style>
+		body{
+			width: 100%;
+			background-color: #dedede;
+		}	
+
+
+		#form-main{
+			width: 520px;
+			padding-top: 150px;
+    		margin: 0 auto;
+		}
+
+		#form-div {
+			background-color:rgba(72,72,72,0.6);
+			padding:35px;
+			width: 450px;
+			float: left;
+			margin: 0 auto;
+
+		}
+
+		.value-input {
+			color:#3c3c3c;
+			font-family: Helvetica;
+			font-size: 12px;
+			line-height: 22px;
+			background-color: #ffffff;
+			margin-bottom: 10px;
+			width: 450px;
+			border: 3px solid rgba(0,0,0,0);
+		}
+
+
+		.button-blue{
+			font-family: Georgia;
+			float:left;
+			text-align: center;
+			width: 100%;
+			border: #ffffff solid 4px;
+			background-color: #334867;
+			color:white;
+			font-size:24px;
+			padding:22px 0;
+		}
+
+		.button-blue:hover{
+			background-color: rgba(0,0,0,0);
+			color: #334867;
+			text-align: center;
+		}
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+
+	 	<div id="form-main">
+		  	<div id="form-div">
+		    	<form name="UsernamePassword" action = "" >
+		      
+			        	<input type="username" name="username" id ="username" class="value-input" placeholder="username" />
+			      
+			       		<input type="password" name="password" id ="password" class="value-input" placeholder="password" />
+			    
+			        	<input type="submit" onclick= "checkLogin()" value="LOGIN" class="button-blue"/>
+	    		</form>
+	    	</div>
+	    </div>
+
+	
+
+		<script>
+			function checkLogin(){
+				var username = document.getElementById("username").value;
+				var password = document.getElementById("password").value;
+			
+					if (username === "hallie" && password === "kohler"){
+						alert("WOOHOO!");
+					} else {
+						alert("Oops -- Try Again!");
+					}
+			}
+
+
+
+			// function validateForm() {
+   //  			var x = document.forms["UsernamePassword"]["password"].value;
+   //  				if (x == null || x == "") {
+   //    				  alert("All ");
+   //      			return false;
+   //  				}
+			// }
+
+
+		</script>
+
+
+
+	</body>
+
+
+
+	</html>
