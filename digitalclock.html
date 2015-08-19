@@ -2,11 +2,28 @@
 <html>
     <head>
         <title> clock </title>
+
+        <style>
+            
+            body{
+                background-color: black
+            }
+
+            #txt{
+                color:white;
+                font-family: georgia;
+                font-size: 80px;
+                padding-top: 100px;
+                width: 318px;
+                margin: 0 auto;
+            }
+        </style>
+
     </head>
 
     <body onload="startTime()">     
         <div id="txt"></div>
-        
+
         <script>
             function startTime() {
                 var today = new Date();
